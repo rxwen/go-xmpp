@@ -473,6 +473,7 @@ func (c *Client) startTLSIfRequired(f *streamFeatures, o *Options, domain string
 		*tc = DefaultConfig
 		//TODO(scott): we should consider using the server's address or reverse lookup
 		tc.ServerName = domain
+		tc.InsecureSkipVerify = DefaultConfig.InsecureSkipVerify
 	}
 	t := tls.Client(c.conn, tc)
 
